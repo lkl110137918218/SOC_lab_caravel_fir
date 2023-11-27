@@ -1,0 +1,16 @@
+Reading counter_la_fir.hex
+counter_la_fir.hex loaded into memory
+Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
+VCD info: dumpfile counter_la_fir.vcd opened for output.
+LA Test 1 started
+checkbits = 765a
+finsih first iteration test
+latency of 1st itertaion =       31918 clock cycles
+checkbits = 765a
+finsih second iteration test
+latency of 2nd itertaion =       31918 clock cycles
+checkbits = 765a
+finsih third iteration test
+latency of 3rd itertaion =       31918 clock cycles
+latency of total itertaion =       95754 clock cycles
+LA Test 2 passed
