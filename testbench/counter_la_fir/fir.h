@@ -11,17 +11,6 @@ int outputsignal[N];
 #define reg_user_ap_signal (*(volatile uint32_t *)0x30000000)
 #define reg_user_data_length (*(volatile uint32_t *)0x30000010)
 
-// #define reg_user_tap_0 (*(volatile uint32_t *)0x30000020)
-// #define reg_user_tap_1 (*(volatile uint32_t *)0x30000024)
-// #define reg_user_tap_2 (*(volatile uint32_t *)0x30000028)
-// #define reg_user_tap_3 (*(volatile uint32_t *)0x3000002c)
-// #define reg_user_tap_4 (*(volatile uint32_t *)0x30000030)
-// #define reg_user_tap_5 (*(volatile uint32_t *)0x30000034)
-// #define reg_user_tap_6 (*(volatile uint32_t *)0x30000038)
-// #define reg_user_tap_7 (*(volatile uint32_t *)0x3000003c)
-// #define reg_user_tap_8 (*(volatile uint32_t *)0x30000040)
-// #define reg_user_tap_9 (*(volatile uint32_t *)0x30000044)
-// #define reg_user_tap_10 (*(volatile uint32_t *)0x30000048)
 
 #define reg_user_tap_0 (*(volatile uint32_t *)0x30000040)
 #define reg_user_tap_1 (*(volatile uint32_t *)0x30000044)
