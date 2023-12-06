@@ -197,7 +197,7 @@ module counter_la_fir_tb;
 		$display("latency of total itertaion = %d clock cycles", total_cycle);
 		wait(checkbits == 16'hAB51);
 		$display("LA Test 2 passed");
-		
+		// $display("latency of total itertaion = %d clock cycles", total_cycle);
 		#10000;
 		$finish;
 	end
