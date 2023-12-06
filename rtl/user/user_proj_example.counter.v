@@ -261,7 +261,6 @@ module user_proj_example #(
                     end else if (wbs_adr_axi_i[15:0] == 16'h84) begin
                         next_state = AXI_STREAM_OUT;
                     end else if (wbs_we_axi_i) begin
-                        // next_state = AXI_LITE_WADDR;
                         next_state = AXI_LITE_WRITE;
                     end else begin
                         next_state = AXI_LITE_RADDR;
