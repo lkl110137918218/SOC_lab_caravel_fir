@@ -5,12 +5,12 @@ VCD info: dumpfile counter_la_fir.vcd opened for output.
 LA Test 1 started
 checkbits = 765a
 finsih first iteration test
-latency of 1st itertaion =       31918 clock cycles
+latency of 1st itertaion =       31790 clock cycles
 checkbits = 765a
 finsih second iteration test
-latency of 2nd itertaion =       31918 clock cycles
+latency of 2nd itertaion =       31790 clock cycles
 checkbits = 765a
 finsih third iteration test
-latency of 3rd itertaion =       31918 clock cycles
-latency of total itertaion =       95754 clock cycles
+latency of 3rd itertaion =       31790 clock cycles
 LA Test 2 passed
+latency of total itertaion =       95370 clock cycles
