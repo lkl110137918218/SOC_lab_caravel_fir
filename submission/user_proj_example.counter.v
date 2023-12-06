@@ -261,7 +261,6 @@ module user_proj_example #(
                     end else if (wbs_adr_axi_i[15:0] == 16'h84) begin
                         next_state = AXI_STREAM_OUT;
                     end else if (wbs_we_axi_i) begin
-                        // next_state = AXI_LITE_WADDR;
                         next_state = AXI_LITE_WRITE;
                     end else begin
                         next_state = AXI_LITE_RADDR;
@@ -270,11 +269,7 @@ module user_proj_example #(
                     next_state = IDLE;
                 end    
             end
-            // AXI_LITE_WADDR: begin
-            //     next_state = (wbs_ack_axi_o) ? AXI_LITE_WDATA : AXI_LITE_WADDR;
-            // end
-            AXI_LITE_WRITE: begin
-                // next_state = (wbs_ack_axi_o && wready) ? IDLE : AXI_LITE_WDATA;
+            AXI_LITE_WRITE: begin;
                 next_state = (wbs_ack_axi_o) ? IDLE : AXI_LITE_WRITE;
             end
             AXI_LITE_RADDR: begin
@@ -297,10 +292,9 @@ module user_proj_example #(
 
     always @(*) begin
         //axi write addr
-        // awvalid = (curr_state == AXI_LITE_WADDR) ? 1 : 0;
         awvalid = (curr_state == AXI_LITE_WRITE) ? 1 : 0;
-        // awaddr  = (curr_state == AXI_LITE_WADDR) ? wbs_adr_axi_i[11:0] : 0;
         awaddr  = (awvalid == 1) ? wbs_adr_axi_i[11:0] : 0;
+        
         //axi write data
         wvalid = (curr_state == AXI_LITE_WRITE) ? 1 : 0;
         wdata  = (wvalid == 1) ? wbs_dat_axi_i : 0;
@@ -314,7 +308,6 @@ module user_proj_example #(
 
         //axi stream in
         ss_tvalid = (curr_state == AXI_STREAM_IN) ? 1 : 0;
-        // ss_tdata  = (ss_tready == 1) ? wbs_dat_axi_i : 0;
         ss_tdata  = (curr_state == AXI_STREAM_IN) ? wbs_dat_axi_i : 0;
         // ss_tlast = (curr_state == AXI_STREAM_IN) ? 1 : 0;
 
@@ -325,10 +318,8 @@ module user_proj_example #(
 
     always @(*) begin
         wbs_ack_axi_o = 0;
-        // if (curr_state == AXI_LITE_WADDR)        wbs_ack_axi_o = awready;
         // if (curr_state == AXI_LITE_WRITE)        wbs_ack_axi_o = (awready | wvalid)  && wready;
         if (curr_state == AXI_LITE_WRITE)        wbs_ack_axi_o = wvalid;
-        // else if (curr_state == AXI_LITE_WDATA)   wbs_ack_axi_o = wvalid;
         else if (curr_state == AXI_LITE_RADDR)   wbs_ack_axi_o = arready;
         else if (curr_state == AXI_LITE_RDATA)   wbs_ack_axi_o = rvalid;
         else if (curr_state == AXI_STREAM_IN)    wbs_ack_axi_o = ss_tready;
@@ -453,5 +444,4 @@ endmodule
 
 
 `default_nettype wire
-
 
