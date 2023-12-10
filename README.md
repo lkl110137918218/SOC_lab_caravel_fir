@@ -1,4 +1,4 @@
-# Execute FIR code in user BRAM
+# Lab 4-2 Caravel FIR
 
 ## Objectives of this lab
 Understand Caravel Testbench Structure, particularly, the relationship among
